@@ -8,6 +8,7 @@ al finalizar, se calculara el precio total del pedido*/
 
 /*Para usar arreglos, cada producto se agrego como un objeto y cada objeto se agrego al arreglo */
 
+//creacion clase con constructor
 class Producto {
     constructor(nombre, cantidad, precio, subtotal) {
         this.nombre = nombre;
@@ -17,6 +18,7 @@ class Producto {
     }
 }
 
+//creacion funcion que me pregunta por los productos
 function subtotal(){
     let palabra = '';
     let precioTotal = 0;
@@ -41,6 +43,7 @@ function subtotal(){
     return precioTotal;
 }
 
+//creacion funcion que me pregunta por el envio y me calcula el total
 function total(){
     let ubicacion=parseInt(prompt("escriba el numero 1 si vives en Medellin o escribe el numero 0 si vives en otra ciudad."));
     let precioEnvio=0;
@@ -57,6 +60,7 @@ function total(){
     console.log("El total de tu pedido es: " + precio);
 }
 
+//creacion funcion que me imprime en consola
 function impresion(array){
     console.log("Los productos, con sus nombres, precios, cantidades y suubtotales, de todos los productos que agregaste son:")
     var i=1;
