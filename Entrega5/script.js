@@ -1,7 +1,7 @@
-/*ENTREGA 4, CLASE 8, DESAFIO COMPLEMENTARIO - INTERACTUAR CON HTML*/
+/*ENTREGA 5, CLASE 9, DESAFIO - INCORPORAR EVENTOS*/
 /* CLASE DOM */
 
-/* EN ESTE EJERCICIO, SE PRETENDE PODER INTERACTUAR CON DOM, HTML Y JAVASCRIPT.
+/* EN ESTE EJERCICIO, SE PRETENDE PODER INTERACTUAR CON DOM, HTML, JAVASCRIPT Y EVENTOS.
 PARA ESTO, VAMOS A CREAR UNA CLASE DE LOS PRODUCTOS, QUE AL SER MI PAGINA UN ECOMMERCE,
 ES NECESARIO PODER CREAR DIFERENTES PRODUCTOS SIN CREARLOS EN EL HTML CADA UNO */
 
@@ -24,6 +24,24 @@ const producto5 = new Producto("Arepas blanca", "Arepas hechas con maiz blanco, 
 //creacion del array con cada uno de los PRODUCTOS, objetos
 const array= [producto1, producto2, producto3, producto4, producto5];
 
+//id del formulario
+let formProducto = document.getElementById('formulario');
+
+//vamor a hacer el evento del submit del formulario
+formProducto.addEventListener('submit', (e) =>{
+    e.preventDefault(); //por defecto este evento subit envia al servidor. hay que prevenir esto porque aun no se tiene nada del servidor
+
+    let inputNombre = document.getElementById('nombre');
+    let inputDescripcion = document.getElementById('descripcion');
+    let inputPrecio = document.getElementById('precio');
+
+    const producto = new Producto(inputNombre.value, inputDescripcion.value, inputPrecio.value);
+    array.push(producto);
+
+    console.log(producto);
+    formProducto.reset();
+})
+
 //llamamos al id del div donde vamos a meter nuestros productos en el HTML
 let productsSection = document.getElementById('productsSection');
 
@@ -43,18 +61,3 @@ botonProductos.addEventListener('click', () =>{
     });
 })
 
-let formProducto = document.getElementById('formulario');
-
-formProducto.addEventListener('submit', (e) =>{
-    e.preventDefault(); //por defecto este evento subit envia al servidor. hay que prevenir esto porque aun no se tiene nada del servidor
-
-    let inputNombre = document.getElementById('nombre');
-    let inputDescripcion = document.getElementById('descripcion');
-    let inputPrecio = document.getElementById('precio');
-
-    const producto = new Producto(inputNombre.value, inputDescripcion.value, inputPrecio.value);
-    array.push(producto);
-
-    console.log(producto);
-    formProducto.reset();
-})
