@@ -1,0 +1,8 @@
+.cardProd{
+    border: 1px solid blue;
+    width: 40%;
+    margin-bottom: 3%;
+    display: inline-block;
+    text-align: center;
+    margin-right: 5%;
+}
